@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EdgeK BEAST | Governed AI Coding Control Plane</title>
+  <meta name="description" content="EdgeK BEAST is a local-first control plane for AI coding agents, model routing, tool governance, evidence capture and reusable verified capability." />
+  <meta name="theme-color" content="#020804" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Azeret+Mono:wght@400;600;800&family=Chakra+Petch:wght@400;500;600;700&family=Michroma&family=Orbitron:wght@400;600;700;800;900&family=Oxanium:wght@400;600;700;800&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&family=Teko:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="matrix-rain" aria-hidden="true"></canvas>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="ambient-grid" aria-hidden="true"></div>
+  <div class="scan-vignette" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+  <div class="site-shell">
+    <aside class="side-rail" aria-label="BEAST site navigation">
+      <a class="rail-brand" href="#top" aria-label="BEAST home">
+        <img src="assets/beast-studio-icon.png" alt="" />
+        <span>BEAST</span>
+        <small>CONTROL</small>
+      </a>
+      <nav class="rail-nav">
+        <a class="active" href="#top"><img src="assets/icons/studio.png" alt="" />Studio</a>
+        <a href="#engine"><img src="assets/icons/mission.png" alt="" />Engine</a>
+        <a href="#economy"><img src="assets/icons/compute.png" alt="" />Economy</a>
+        <a href="#proof"><img src="assets/icons/evidence.png" alt="" />Proof</a>
+        <a href="#interface"><img src="assets/icons/terminal.png" alt="" />Interface</a>
+        <a href="#launch"><img src="assets/icons/deploy.png" alt="" />Launch</a>
+      </nav>
+      <div class="rail-status">
+        <span></span>
+        <strong>Systems nominal</strong>
+        <small>local first · evidence ready</small>
+      </div>
+    </aside>
+
+    <div class="page-core">
+      <header class="top-chrome" id="top">
+        <a class="top-logo" href="#top" aria-label="EdgeK BEAST home">
+          <img class="top-logo-icon" src="assets/beast-studio-icon.png" alt="" />
+          <img class="top-wordmark" src="assets/beast-wordmark-hd.png" alt="BEAST IDE" />
+        </a>
+        <nav class="top-nav" aria-label="Primary navigation">
+          <a href="#engine">Engine</a>
+          <a href="#economy">Economy</a>
+          <a href="#proof">Proof</a>
+          <a href="#interface">Interface</a>
+          <a href="#launch">Launch</a>
+        </nav>
+        <a class="top-cta" href="https://byron2306.github.io/EdgeK-BEAST-page/" target="_blank" rel="noreferrer">Open Commons ↗</a>
+      </header>
+
+      <main id="main">
+        <section class="hero-grid" aria-labelledby="hero-title">
+          <div class="mission-panel panel-shell reveal">
+            <div class="panel-header">
+              <img src="assets/icons/orchestrator.png" alt="" />
+              <div>
+                <span>BEAST // ACTIVE MISSION</span>
+                <strong>Governed agentic execution</strong>
+              </div>
+              <b>LIVE UI</b>
+            </div>
+
+            <div class="hero-mark">
+              <img src="assets/beast-wordmark-hd.png" alt="BEAST IDE" />
+            </div>
+
+            <p class="eyebrow"><span></span> Local-first governed inference · proof before power</p>
+            <h1 id="hero-title">A control plane for AI coding agents.</h1>
+            <p class="hero-lede">
+              BEAST prepares agent work before it begins: scope the mission, compress repository context, route the right model, gate the tools, capture evidence and turn verified residue into reusable local capability.
+            </p>
+
+            <div class="mission-actions">
+              <a class="primary-btn" href="#engine">See the control loop</a>
+              <a class="ghost-btn" href="assets/docs/beast-inference-economy-inversion.pdf">Read the inference paper</a>
+            </div>
+
+            <div class="metric-row" aria-label="BEAST proof highlights">
+              <article><strong>250/250</strong><span>gauntlet completions</span></article>
+              <article><strong>241</strong><span>provider rescues surfaced</span></article>
+              <article><strong>83.33%</strong><span>governed lane pass</span></article>
+              <article><strong>43 JS</strong><span>runtime checks</span></article>
+            </div>
+          </div>
+
+          <div class="studio-cockpit panel-shell reveal">
+            <div class="panel-header">
+              <img src="assets/icons/studio.png" alt="" />
+              <div>
+                <span>BEAST://STUDIO-CAPTURE</span>
+                <strong>Actual governed coding surface</strong>
+              </div>
+              <b>PHASE 9.1.5</b>
+            </div>
+
+            <div class="studio-screen">
+              <img src="assets/screens/beast-studio-live.png" alt="Actual BEAST Studio interface screenshot" />
+            </div>
+
+            <div class="cursor-strip">
+              <span><img src="assets/cursors/claw-tip-48.png" alt="" />select</span>
+              <span><img src="assets/cursors/circuit-hook-48.png" alt="" />route</span>
+              <span><img src="assets/cursors/target-lock-48.png" alt="" />lock</span>
+              <span><img src="assets/cursors/hex-seal-48.png" alt="" />seal</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="engine">
+          <div class="section-title reveal">
+            <span class="section-glyph"><img src="assets/icons/mission.png" alt="" /></span>
+            <div>
+              <p class="eyebrow"><span></span> Engine</p>
+              <h2>Every agent run gets a mission, a route and a receipt.</h2>
+              <p>BEAST sits between the developer, the repository, model providers and execution tools. It does not replace the IDE. It gives agentic coding the missing governance surface.</p>
+            </div>
+          </div>
+
+          <div class="systems-grid">
+            <article class="system-card reveal">
+              <img src="assets/icons/mission.png" alt="" />
+              <h3>Mission framing</h3>
+              <p>Convert vague requests into bounded objectives with scope, success criteria, risk level and evidence expectations.</p>
+            </article>
+            <article class="system-card reveal">
+              <img src="assets/icons/context.png" alt="" />
+              <h3>Context compression</h3>
+              <p>Compress files, symbols, retrieval hits and stale paths into the smallest reliable operating context.</p>
+            </article>
+            <article class="system-card reveal">
+              <img src="assets/icons/providers.png" alt="" />
+              <h3>Provider cascade</h3>
+              <p>Prefer local and cached lanes, then escalate only when uncertainty, risk or reasoning depth justifies spend.</p>
+            </article>
+            <article class="system-card reveal">
+              <img src="assets/icons/tools.png" alt="" />
+              <h3>Tool governance</h3>
+              <p>Gate commands, file mutations and external calls so AI work remains visible, constrained and reviewable.</p>
+            </article>
+            <article class="system-card reveal">
+              <img src="assets/icons/crystallization.png" alt="" />
+              <h3>Crystallization</h3>
+              <p>Turn verified inference residue into reusable capability instead of paying to rediscover the same answer.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section economy-section" id="economy">
+          <div class="economy-grid panel-shell reveal">
+            <div class="economy-copy">
+              <p class="eyebrow"><span></span> Inference Economy Inversion</p>
+              <h2>Stop buying the same uncertainty twice.</h2>
+              <p>
+                A model call should not vanish after it answers. BEAST treats inference as a governed intervention whose verified residue can be fingerprinted, stored and reused.
+              </p>
+              <div class="route-tape">
+                <span>local</span><span>cache</span><span>rag</span><span>tools</span><span>cloud</span><span>proof</span>
+              </div>
+            </div>
+            <div class="telemetry-rack" aria-label="Inference economy telemetry">
+              <article><b>0.94</b><span>tiny model + crystal lane</span></article>
+              <article><b>72%</b><span>context squeeze target</span></article>
+              <article><b>0.97</b><span>large lane reference signal</span></article>
+              <article><b>83.33%</b><span>governed structural pass</span></article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="proof">
+          <div class="section-title reveal">
+            <span class="section-glyph"><img src="assets/icons/evidence.png" alt="" /></span>
+            <div>
+              <p class="eyebrow"><span></span> Proof chambers</p>
+              <h2>Failure modes become visible before they become hidden cost.</h2>
+              <p>Public proof summaries are bounded by design. They show what was tested, what passed and what the system surfaced without exposing private prompts, credentials or raw operational traces.</p>
+            </div>
+          </div>
+
+          <div class="proof-grid">
+            <article class="proof-card reveal">
+              <img src="assets/icons/target-lock.png" alt="" />
+              <small>Hidden-Cost Gauntlet</small>
+              <h3>Provider chaos made measurable</h3>
+              <strong>250/250</strong>
+              <p>Completion matrix with 241 provider rescues surfaced as explicit evidence rather than invisible friction.</p>
+            </article>
+            <article class="proof-card reveal">
+              <img src="assets/icons/diagnostics.png" alt="" />
+              <small>Phase 9.1.5</small>
+              <h3>Runtime validation</h3>
+              <strong>PASS</strong>
+              <p>20 CSS files and 43 JS files checked, asset references cleaned and duplicate HTML IDs avoided.</p>
+            </article>
+            <article class="proof-card reveal">
+              <img src="assets/icons/map.png" alt="" />
+              <small>Phase 9.1.4</small>
+              <h3>Legible atmosphere</h3>
+              <strong>PASS</strong>
+              <p>Background motion, grid depth and glass surfaces tuned so the system remains readable under visual load.</p>
+            </article>
+            <article class="proof-card reveal">
+              <img src="assets/icons/system.png" alt="" />
+              <small>Phase 8</small>
+              <h3>Utility plane integration</h3>
+              <strong>8</strong>
+              <p>Providers, System, Deploy, Chronicle, Studio, Worktrees and Compute Economy surfaces unified.</p>
+            </article>
+          </div>
+
+          <details class="validation-drawer panel-shell reveal">
+            <summary><strong>Open validation telemetry</strong><span>phase receipts</span></summary>
+            <div class="validation-grid" id="validation-grid"></div>
+          </details>
+        </section>
+
+        <section class="section" id="interface">
+          <div class="section-title reveal">
+            <span class="section-glyph"><img src="assets/icons/terminal.png" alt="" /></span>
+            <div>
+              <p class="eyebrow"><span></span> Interface</p>
+              <h2>The site now borrows the IDE’s own chrome, not a generic landing-page costume.</h2>
+              <p>Panels, icons, rails, cursor grammar, frame accents and telemetry widgets are drawn from the BEAST visual system so the public site feels like the product it promotes.</p>
+            </div>
+          </div>
+
+          <div class="interface-grid">
+            <div class="screen-tabs panel-shell reveal">
+              <button class="screen-tab active" data-screen="beast-studio-live.png"><img src="assets/icons/studio.png" alt="" />Studio overview</button>
+              <button class="screen-tab" data-screen="providers-plane.webp"><img src="assets/icons/providers.png" alt="" />Provider plane</button>
+              <button class="screen-tab" data-screen="terminal-nexus.webp"><img src="assets/icons/terminal.png" alt="" />Terminal nexus</button>
+              <button class="screen-tab" data-screen="crystal-forge.webp"><img src="assets/icons/crystal.png" alt="" />Crystal forge</button>
+            </div>
+            <div class="mega-frame panel-shell reveal">
+              <div class="panel-header">
+                <img src="assets/icons/studio.png" alt="" />
+                <div>
+                  <span>LIVE SURFACE</span>
+                  <strong id="screen-title">Studio overview</strong>
+                </div>
+                <b>selectable</b>
+              </div>
+              <img id="mega-screen" src="assets/screens/beast-studio-live.png" alt="BEAST interface preview" />
+            </div>
+          </div>
+        </section>
+
+        <section class="section architecture-section">
+          <div class="section-title reveal">
+            <span class="section-glyph"><img src="assets/icons/route.png" alt="" /></span>
+            <div>
+              <p class="eyebrow"><span></span> Architecture</p>
+              <h2>One mission enters. Evidence leaves.</h2>
+            </div>
+          </div>
+          <div class="pipeline">
+            <article class="reveal"><img src="assets/icons/mission.png" alt="" /><h3>Mission</h3><p>Define task, risk, outcome and evidence boundary.</p></article>
+            <article class="reveal"><img src="assets/icons/context.png" alt="" /><h3>Context</h3><p>Compress repo, files, memory and semantic top-k.</p></article>
+            <article class="reveal"><img src="assets/icons/route.png" alt="" /><h3>Model route</h3><p>Choose local, cached, cheap or premium lanes.</p></article>
+            <article class="reveal"><img src="assets/icons/tools.png" alt="" /><h3>Tool gates</h3><p>Approve mutations, commands and external calls.</p></article>
+            <article class="reveal"><img src="assets/icons/review.png" alt="" /><h3>Review</h3><p>Run tests, syntax, diffs, rubric and human gate.</p></article>
+            <article class="reveal"><img src="assets/icons/crystal.png" alt="" /><h3>Crystal</h3><p>Save verified residue for reuse.</p></article>
+          </div>
+        </section>
+
+        <section class="section launch-section" id="launch">
+          <div class="launch-card panel-shell reveal">
+            <img src="assets/beast-studio-icon.png" alt="" />
+            <div>
+              <p class="eyebrow"><span></span> Launch</p>
+              <h2>Try BEAST as the control plane for governed agentic coding.</h2>
+              <p>Built for developers and teams who want AI coding agents to work with mission discipline, constrained tool use, transparent routing and reviewable evidence after the run.</p>
+            </div>
+            <div class="launch-actions">
+              <a class="primary-btn" href="https://byron2306.github.io/EdgeK-BEAST-page/" target="_blank" rel="noreferrer">Open BEAST Commons ↗</a>
+              <a class="ghost-btn" href="assets/docs/edgek-beast-whitepaper.pdf">Download whitepaper</a>
+              <a class="ghost-btn" href="assets/docs/beast-inference-economy-inversion.pdf">Inference paper</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>EDGEK BEAST</span>
+        <span>GOVERNED · LOCAL-FIRST · EVIDENCED</span>
+        <span>POWER WITH RECEIPTS</span>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

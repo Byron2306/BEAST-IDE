@@ -1,0 +1,317 @@
+{
+  "PHASE9_1_5_VALIDATION": {
+    "phase": "9.1.5",
+    "font_stylesheet_present": true,
+    "unique_font_css_loaded": true,
+    "font_loader_loaded": true,
+    "active_font_families": {
+      "display": [
+        "Orbitron",
+        "Oxanium"
+      ],
+      "interface": [
+        "Rajdhani",
+        "Chakra Petch"
+      ],
+      "terminal": [
+        "Share Tech Mono"
+      ]
+    },
+    "named_corporate_font_references": [],
+    "css_files_checked": 20,
+    "css_balance_failures": [],
+    "js_files_checked": 43,
+    "duplicate_html_ids": [],
+    "status": "PASS",
+    "font_palette_loaded": [
+      "Orbitron",
+      "Oxanium",
+      "Chakra Petch",
+      "Rajdhani",
+      "Aldrich",
+      "Michroma",
+      "Teko",
+      "Share Tech Mono",
+      "IBM Plex Mono",
+      "JetBrains Mono",
+      "Space Mono",
+      "Azeret Mono"
+    ]
+  },
+  "PHASE9_1_4_VALIDATION": {
+    "phase": "9.1.4",
+    "javascript_files_checked": 42,
+    "javascript_syntax_failures": [],
+    "css_files_checked": 19,
+    "css_balance_failures": [],
+    "duplicate_static_ids": [],
+    "phase914_css_owners": 1,
+    "phase914_js_owners": 1,
+    "matrix_background_canvases": 1,
+    "matrix_foreground_canvases": 1,
+    "runtime_front_grid_expected": true,
+    "status": "PASS"
+  },
+  "PHASE9_1_3_VALIDATION": {
+    "phase": "9.1.3",
+    "status": "PASS",
+    "javascript_files_checked": 41,
+    "javascript_syntax_failures": [],
+    "css_files_checked": 18,
+    "css_balance_failures": [],
+    "duplicate_html_ids": [],
+    "missing_local_references": [],
+    "owners": {
+      "phase_9_1_3_css": 1,
+      "phase_9_1_3_js": 1,
+      "matrix_background": 1,
+      "matrix_foreground": 1,
+      "grid_layer": 1,
+      "page_outlet": 1,
+      "context_rail": 1,
+      "header_brandmark": 1,
+      "header_title_row": 1,
+      "header_state": 1
+    },
+    "browser_capture": "UNAVAILABLE: container Chromium hung during local-file capture; no visual runtime claim is made.",
+    "runtime_acceptance_required": "Fully restart Electron and inspect matrix/grid visibility, glass readability, and responsive header at 1920x1080, 1600x900, and 1366x768."
+  },
+  "PHASE9_VALIDATION": {
+    "phase": 9,
+    "javascript_files": 37,
+    "javascript_syntax_failures": [],
+    "missing_local_references": [],
+    "duplicate_ids": [],
+    "page_outlets": 1,
+    "context_rails": 1,
+    "phase9_app_loaded": 1,
+    "phase8_app_loaded": 0,
+    "premium_headers": 3,
+    "visualizers": [
+      "header heartbeat",
+      "card heartbeat",
+      "world map nodes",
+      "enhanced rings"
+    ],
+    "status": "PASS"
+  },
+  "PHASE8_VALIDATION": {
+    "phase": "8",
+    "name": "Utility and Orchestration Plane",
+    "javascript_files_checked": 35,
+    "javascript_syntax_failures": [],
+    "css_files_checked": 13,
+    "css_balance_failures": [],
+    "html": {
+      "index.html": {
+        "ids": 14,
+        "duplicate_ids": [],
+        "page_outlets": 1,
+        "context_rails": 1,
+        "phase8_apps": 1,
+        "legacy_apps_loaded": 0
+      },
+      "index-v2.html": {
+        "ids": 14,
+        "duplicate_ids": [],
+        "page_outlets": 1,
+        "context_rails": 1,
+        "phase8_apps": 1,
+        "legacy_apps_loaded": 0
+      },
+      "preview.html": {
+        "ids": 14,
+        "duplicate_ids": [],
+        "page_outlets": 1,
+        "context_rails": 1,
+        "phase8_apps": 1,
+        "legacy_apps_loaded": 0
+      }
+    },
+    "missing_local_references": [],
+    "literal_icon_references": 29,
+    "missing_literal_icons": [],
+    "phase8_route_renderer_counts": {
+      "studio": 1,
+      "providers": 1,
+      "system": 1,
+      "worktrees": 1,
+      "deploy": 1,
+      "chronicle": 1,
+      "economy": 1,
+      "settings": 1
+    },
+    "new_icon_dimensions": {
+      "deploy": [
+        512,
+        512
+      ],
+      "chronicle": [
+        512,
+        512
+      ],
+      "economy": [
+        512,
+        512
+      ],
+      "database": [
+        512,
+        512
+      ],
+      "studio": [
+        512,
+        512
+      ],
+      "providers": [
+        512,
+        512
+      ],
+      "system": [
+        512,
+        512
+      ],
+      "worktrees": [
+        512,
+        512
+      ],
+      "settings": [
+        512,
+        512
+      ]
+    },
+    "browser_runtime": {
+      "status": "blocked_by_administrator_policy",
+      "detail": "Chromium navigation to local and synthetic HTTP origins returns ERR_BLOCKED_BY_ADMINISTRATOR in this environment. Electron acceptance checklist supplied."
+    },
+    "static_status": "PASS"
+  },
+  "PHASE7_VALIDATION": {
+    "javascript": {
+      "checked": 32,
+      "failures": []
+    },
+    "css": {
+      "files": 11,
+      "failures": []
+    },
+    "html": {
+      "duplicate_ids": [],
+      "page_outlets": 1,
+      "context_rails": 1,
+      "mascot_roots": 1,
+      "legacy_page_panels": 0
+    },
+    "references": {
+      "checked": 60,
+      "missing": []
+    },
+    "ownership": {
+      "phase7_app_count": 1,
+      "phase7_bridge_count": 1,
+      "terminal_page_count": 1,
+      "tooling_page_count": 1,
+      "doctor_page_count": 1,
+      "legacy_loaded": []
+    },
+    "hd_frames": {
+      "count": 4,
+      "items": [
+        {
+          "file": "panel-hd-amber.png",
+          "size": [
+            1024,
+            1024
+          ],
+          "center_alpha": 0,
+          "transparent_center": true
+        },
+        {
+          "file": "panel-hd-cyan.png",
+          "size": [
+            1024,
+            1024
+          ],
+          "center_alpha": 0,
+          "transparent_center": true
+        },
+        {
+          "file": "panel-hd-danger.png",
+          "size": [
+            1024,
+            1024
+          ],
+          "center_alpha": 0,
+          "transparent_center": true
+        },
+        {
+          "file": "panel-hd-neutral.png",
+          "size": [
+            1024,
+            1024
+          ],
+          "center_alpha": 0,
+          "transparent_center": true
+        }
+      ],
+      "failures": []
+    },
+    "capture_browser": {
+      "terminal": {
+        "metrics": {
+          "route": "terminal",
+          "outletChildren": 1,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "viewportScrollWidth": 1159,
+          "viewportClientWidth": 1159,
+          "scrollHeight": 1297,
+          "clientHeight": 776,
+          "pageClass": "beast-page beast-terminal-page",
+          "bootError": "",
+          "brokenImages": [],
+          "cards": 8
+        },
+        "errors": [],
+        "screenshot": "PHASE7_TERMINAL_PREVIEW.png"
+      },
+      "tooling": {
+        "metrics": {
+          "route": "tooling",
+          "outletChildren": 1,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "viewportScrollWidth": 1159,
+          "viewportClientWidth": 1159,
+          "scrollHeight": 1585,
+          "clientHeight": 776,
+          "pageClass": "beast-page beast-tooling-page",
+          "bootError": "",
+          "brokenImages": [],
+          "cards": 11
+        },
+        "errors": [],
+        "screenshot": "PHASE7_TOOLING_PREVIEW.png"
+      },
+      "doctor": {
+        "metrics": {
+          "route": "doctor",
+          "outletChildren": 1,
+          "scrollWidth": 1920,
+          "clientWidth": 1920,
+          "viewportScrollWidth": 1159,
+          "viewportClientWidth": 1159,
+          "scrollHeight": 1762,
+          "clientHeight": 776,
+          "pageClass": "beast-page beast-doctor-page",
+          "bootError": "",
+          "brokenImages": [],
+          "cards": 11
+        },
+        "errors": [],
+        "screenshot": "PHASE7_DOCTOR_PREVIEW.png"
+      }
+    },
+    "capture_browser_failures": [],
+    "status": "PASS"
+  }
+}

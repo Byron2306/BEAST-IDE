@@ -1,0 +1,19 @@
+
+const validation = {
+  PHASE9_1_5:{phase:"9.1.5",status:"PASS",detail:"Runtime checks passed · 20 CSS files · 43 JS files · duplicate IDs clean"},
+  PHASE9_1_4:{phase:"9.1.4",status:"PASS",detail:"Background motion, grid depth and glass surfaces tuned for readability"},
+  PHASE9_1_3:{phase:"9.1.3",status:"PASS",detail:"Asset references, CSS checks and DOM integrity validated"},
+  PHASE9:{phase:"9",status:"PASS",detail:"Visual system consolidated across core IDE surfaces"},
+  PHASE8:{phase:"8",status:"UTILITY",detail:"Providers, System, Deploy, Chronicle, Studio and Compute Economy unified"},
+  PHASE7:{phase:"7",status:"PASS",detail:"Terminal Nexus, Tooling Forge and Doctor Diagnostics established"}
+};
+const vg=document.querySelector("#validation-grid");
+if(vg){vg.innerHTML=Object.values(validation).map(v=>`<article class="validation-chip"><b>PHASE ${v.phase} · ${v.status}</b><span>${v.detail}</span></article>`).join("")}
+const screenTitles={"beast-studio-live.png":"Studio overview","providers-plane.webp":"Provider plane","terminal-nexus.webp":"Terminal nexus","crystal-forge.webp":"Crystal forge"};
+document.querySelectorAll(".screen-tab").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".screen-tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");const img=document.querySelector("#mega-screen");const title=document.querySelector("#screen-title");const s=btn.dataset.screen;if(img)img.src=`assets/screens/${s}`;if(title)title.textContent=screenTitles[s]||btn.textContent.trim()}));
+const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("revealed");ro.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>ro.observe(el));
+document.querySelectorAll(".rail-nav a").forEach(link=>link.addEventListener("click",()=>{document.querySelectorAll(".rail-nav a").forEach(i=>i.classList.remove("active"));link.classList.add("active")}));
+const cursor=document.querySelector("#cursor-glow");window.addEventListener("pointermove",e=>{if(cursor){cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px"}});
+function startMatrix(){const c=document.querySelector("#matrix-rain");if(!c)return;const x=c.getContext("2d"),chars="BEAST01<>/{}[]$#λπΣ∆∞MISSIONCONTEXTPROOFCRYSTALROUTELOCAL";let cols=0,d=[];function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;x.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);cols=Math.floor(innerWidth/18);d=Array(cols).fill(0).map(()=>Math.random()*innerHeight/18)}function draw(){x.fillStyle="rgba(0,6,2,.085)";x.fillRect(0,0,innerWidth,innerHeight);x.font="15px Share Tech Mono, monospace";for(let i=0;i<cols;i++){const px=i*18,py=d[i]*18,ch=chars[Math.floor(Math.random()*chars.length)];x.fillStyle=Math.random()>.965?"rgba(83,234,255,.82)":"rgba(57,255,20,.52)";x.fillText(ch,px,py);if(py>innerHeight&&Math.random()>.975)d[i]=0;d[i]+=.58+Math.random()*.38}requestAnimationFrame(draw)}resize();addEventListener("resize",resize);draw()}
+function startStars(){const c=document.querySelector("#starfield");if(!c)return;const x=c.getContext("2d");let s=[];function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;x.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);s=Array.from({length:160},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,z:Math.random()*1+.25}))}function draw(){x.clearRect(0,0,innerWidth,innerHeight);x.fillStyle="rgba(209,255,213,.55)";s.forEach(st=>{st.x+=(st.z-.5)*.16;st.y+=st.z*.22;if(st.y>innerHeight){st.y=0;st.x=Math.random()*innerWidth}x.beginPath();x.arc(st.x,st.y,st.z*1.25,0,Math.PI*2);x.fill()});requestAnimationFrame(draw)}resize();addEventListener("resize",resize);draw()}
+startMatrix();startStars();
