@@ -1,0 +1,81 @@
+name: Structural frame-safe refactor
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/frame-safe-structure.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refactor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Add structural frame-safe wrappers
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          mission_open = '          <div class="mission-panel panel-shell reveal">\n            <div class="panel-header">'
+          mission_new = '          <div class="mission-panel panel-shell reveal">\n            <div class="frame-safe frame-safe--mission">\n            <div class="panel-header">'
+          if 'frame-safe--mission' not in s:
+              if mission_open not in s:
+                  raise SystemExit('mission opening marker not found')
+              s = s.replace(mission_open, mission_new, 1)
+
+              marker = '<div class="metric-row" aria-label="BEAST proof highlights">'
+              pos = s.index(marker)
+              boundary = '            </div>\n          </div>\n\n          <div class="studio-cockpit panel-shell reveal">'
+              end = s.index(boundary, pos)
+              replacement = '            </div>\n            </div>\n          </div>\n\n          <div class="studio-cockpit panel-shell reveal">'
+              s = s[:end] + s[end:].replace(boundary, replacement, 1)
+
+          studio_open = '          <div class="studio-cockpit panel-shell reveal">\n            <div class="panel-header">'
+          studio_new = '          <div class="studio-cockpit panel-shell reveal">\n            <div class="frame-safe frame-safe--studio">\n            <div class="panel-header">'
+          if 'frame-safe--studio' not in s:
+              if studio_open not in s:
+                  raise SystemExit('studio opening marker not found')
+              s = s.replace(studio_open, studio_new, 1)
+
+              marker = '<div class="cursor-strip">'
+              pos = s.index(marker)
+              boundary = '            </div>\n          </div>\n        </section>'
+              end = s.index(boundary, pos)
+              replacement = '            </div>\n            </div>\n          </div>\n        </section>'
+              s = s[:end] + s[end:].replace(boundary, replacement, 1)
+
+          s = s.replace('mobile-polish.css?v=20260917-v3', 'mobile-polish.css?v=20260917-v4', 1)
+
+          if s.count('frame-safe--mission') != 1:
+              raise SystemExit('mission frame-safe wrapper count is not 1')
+          if s.count('frame-safe--studio') != 1:
+              raise SystemExit('studio frame-safe wrapper count is not 1')
+          if 'mobile-polish.css?v=20260917-v4' not in s:
+              raise SystemExit('v4 stylesheet reference missing')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit structural refactor
+        shell: bash
+        run: |
+          git config user.name "beast-site-bot"
+          git config user.email "beast-site-bot@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "No changes needed."
+          else
+            git commit -m "Use structural frame-safe interiors on mobile"
+            git push
+          fi
