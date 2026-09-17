@@ -1,4 +1,4 @@
-/* mobile-polish-20260917-v2 */
+/* mobile-polish-20260917-v3 */
 /* Mobile layout corrections derived from live phone captures. */
 .top-chrome > *,
 .hero-grid > *,
@@ -57,6 +57,7 @@
 }
 
 @media(max-width:620px){
+  :root{--mobile-frame-safe-x:clamp(26px,7.5vw,34px)}
   .site-shell{width:calc(100% - 14px);margin-top:7px;gap:10px}
 
   /* Preserve narrative order on phones: mission before cockpit. */
@@ -65,69 +66,108 @@
 
   .top-chrome,.mission-panel,.studio-cockpit,.panel-shell,.system-card,.proof-card,.pipeline article{border-radius:20px}
 
-  /* Compact the masthead rather than turning it into a tall menu card. */
-  .top-chrome{min-height:0;padding:10px 11px;gap:9px}
+  /* Respect the decorative frame's narrower visual safe area. */
+  .mission-panel,
+  .studio-cockpit{
+    padding-top:16px;
+    padding-bottom:18px;
+    padding-left:var(--mobile-frame-safe-x);
+    padding-right:var(--mobile-frame-safe-x);
+  }
+  .economy-grid,
+  .mega-frame,
+  .launch-card{
+    padding-left:var(--mobile-frame-safe-x);
+    padding-right:var(--mobile-frame-safe-x);
+  }
+
+  /* Compact masthead, also inset from the chamfered frame rails. */
+  .top-chrome{
+    min-height:0;
+    padding-top:11px;
+    padding-bottom:13px;
+    padding-left:var(--mobile-frame-safe-x);
+    padding-right:var(--mobile-frame-safe-x);
+    gap:9px;
+  }
   .top-logo{display:flex;justify-content:center;width:100%;min-width:0;gap:8px}
-  .top-logo-icon{width:46px;height:46px}
-  .top-wordmark{min-width:0;width:min(72vw,250px)}
+  .top-logo-icon{width:44px;height:44px}
+  .top-wordmark{min-width:0;width:min(68vw,235px)}
   .top-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:100%}
-  .top-nav a{width:100%;padding:7px 6px;min-height:38px;font-size:.74rem;letter-spacing:.045em}
-  .top-cta{width:100%;min-height:46px;padding:9px 12px;white-space:normal}
+  .top-nav a{width:100%;padding:7px 6px;min-height:38px;font-size:.72rem;letter-spacing:.04em}
+  .top-cta{width:100%;min-height:44px;padding:9px 11px;white-space:normal}
 
-  .mission-panel,.studio-cockpit{padding:14px}
-  .panel-header{grid-template-columns:38px minmax(0,1fr);gap:9px;padding:8px 9px;margin-bottom:15px}
-  .panel-header img{width:34px;height:34px}
+  /* Inner framed headers need their own breathing room. */
+  .panel-header{
+    grid-template-columns:36px minmax(0,1fr);
+    gap:9px;
+    padding:10px 14px;
+    margin-bottom:15px;
+  }
+  .panel-header img{width:32px;height:32px}
   .panel-header b{grid-column:1/-1;justify-self:start;white-space:normal;padding:5px 8px}
-  .panel-header span{font-size:.67rem;letter-spacing:.12em}
-  .panel-header strong{font-size:clamp(.98rem,5.5vw,1.22rem);line-height:1.06}
+  .panel-header span{font-size:.65rem;letter-spacing:.11em}
+  .panel-header strong{font-size:clamp(.94rem,5vw,1.16rem);line-height:1.07}
 
-  .hero-mark{padding:8px 10px;margin-bottom:14px}
-  h1{font-size:clamp(2.45rem,12.2vw,3.65rem);line-height:.91;letter-spacing:-.06em}
-  .eyebrow{font-size:.72rem;letter-spacing:.12em;line-height:1.4}
-  .hero-lede{font-size:.98rem;line-height:1.5;padding:9px 10px;margin-top:18px}
+  .hero-mark{width:100%;padding:8px 8px;margin-bottom:14px}
+  .hero-mark img{width:100%;height:auto}
+  h1{
+    max-width:100%;
+    font-size:clamp(2.05rem,10.4vw,3.05rem);
+    line-height:.92;
+    letter-spacing:-.055em;
+  }
+  .eyebrow{max-width:100%;font-size:.69rem;letter-spacing:.105em;line-height:1.4}
+  .hero-lede{max-width:100%;font-size:.94rem;line-height:1.48;padding:9px 8px;margin-top:17px}
 
-  .mission-actions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:20px}
+  .mission-actions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:19px;width:100%}
   .mission-actions .primary-btn,
   .mission-actions .ghost-btn,
   .launch-actions .primary-btn,
-  .launch-actions .ghost-btn{width:100%;min-height:50px;padding:10px 12px;white-space:normal;font-size:.88rem}
+  .launch-actions .ghost-btn{
+    width:100%;
+    min-height:48px;
+    padding:10px 11px;
+    white-space:normal;
+    font-size:.84rem;
+  }
 
-  /* Dense telemetry should read like a dashboard, not four full-width banners. */
-  .metric-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:20px}
-  .metric-row article{min-height:96px;padding:13px}
-  .metric-row strong{font-size:clamp(1.3rem,7vw,1.75rem)}
-  .metric-row span{font-size:.90rem;line-height:1.25}
+  /* Dense telemetry stays inside the same frame-safe column. */
+  .metric-row{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:18px;width:100%}
+  .metric-row article{min-height:94px;padding:12px}
+  .metric-row strong{font-size:clamp(1.22rem,6.5vw,1.65rem)}
+  .metric-row span{font-size:.86rem;line-height:1.25}
 
-  /* Cursor controls fit naturally as a 2 x 2 control pad. */
-  .cursor-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}
-  .cursor-strip span{min-height:58px;padding:8px;font-size:.70rem;letter-spacing:.055em}
-  .cursor-strip img{width:25px;height:25px}
-  .studio-screen{padding:6px;border-radius:16px}
+  /* Cursor controls form a compact 2 x 2 control pad inside the bezel. */
+  .cursor-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px;width:100%}
+  .cursor-strip span{min-height:56px;padding:8px;font-size:.68rem;letter-spacing:.05em}
+  .cursor-strip img{width:24px;height:24px}
+  .studio-screen{width:100%;padding:6px;border-radius:16px}
 
   .section{padding-block:46px}
   .section-title{gap:10px;margin-bottom:20px}
   .section-glyph{width:58px;height:58px;border-radius:17px}
-  .section-title h2,.economy-copy h2,.launch-card h2{font-size:clamp(1.85rem,9.5vw,2.8rem);line-height:.98}
+  .section-title h2,.economy-copy h2,.launch-card h2{font-size:clamp(1.82rem,9vw,2.7rem);line-height:.98}
 
   .route-tape{grid-template-columns:repeat(2,minmax(0,1fr))}
   .route-tape span{padding:9px 10px;min-height:44px;font-size:.68rem;letter-spacing:.05em}
 
-  .launch-card{padding:18px}
-  .launch-card>img{width:78px;height:78px}
+  .launch-card{padding-top:18px;padding-bottom:18px}
+  .launch-card>img{width:76px;height:76px}
   .launch-actions{display:grid;grid-template-columns:1fr;width:100%}
 
-  .validation-drawer summary{padding:11px;gap:9px}
+  .validation-drawer summary{padding:11px var(--mobile-frame-safe-x);gap:9px}
   .validation-drawer summary strong{font-size:.90rem}
   .validation-drawer summary span{width:100%;justify-self:stretch;padding:7px 9px;white-space:normal;text-align:center}
 }
 
 @media(max-width:390px){
+  :root{--mobile-frame-safe-x:24px}
   /* Keep navigation compact even on narrow phones. */
   .top-nav{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .top-nav a{font-size:.69rem;letter-spacing:.035em;min-height:36px}
-  .mission-panel,.studio-cockpit{padding:12px}
-  .panel-header{padding:7px}
-  h1{font-size:clamp(2.25rem,11.7vw,3.25rem)}
-  .primary-btn,.ghost-btn,.top-cta{font-size:.82rem;letter-spacing:.045em}
-  .metric-row article{padding:11px;min-height:90px}
+  .top-nav a{font-size:.67rem;letter-spacing:.03em;min-height:35px}
+  .panel-header{padding:9px 12px}
+  h1{font-size:clamp(1.95rem,10vw,2.85rem)}
+  .primary-btn,.ghost-btn,.top-cta{font-size:.80rem;letter-spacing:.04em}
+  .metric-row article{padding:10px;min-height:88px}
 }
