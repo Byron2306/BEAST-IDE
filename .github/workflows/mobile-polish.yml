@@ -1,4 +1,4 @@
-name: Mobile polish pass
+name: Wire mobile polish stylesheet
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  polish:
+  wire-polish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -19,141 +19,19 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Apply responsive polish
+      - name: Add mobile polish stylesheet
         shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
+        run: python -c "from pathlib import Path; p=Path('index.html'); s=p.read_text(encoding='utf-8'); old='<link rel=\"stylesheet\" href=\"styles.css\" />'; new=old+'\\n  <link rel=\"stylesheet\" href=\"mobile-polish.css?v=20260917\" />'; p.write_text(s if 'mobile-polish.css' in s else s.replace(old,new,1), encoding='utf-8')"
 
-          css_path = Path('styles.css')
-          css = css_path.read_text(encoding='utf-8')
-          marker = '/* mobile-polish-20260917 */'
-          block = r'''
-
-/* mobile-polish-20260917 */
-/* Keep flex/grid children and long labels inside their chrome. */
-.top-chrome > *,
-.hero-grid > *,
-.panel-header > *,
-.mission-actions > *,
-.launch-actions > *,
-.metric-row > *,
-.systems-grid > *,
-.proof-grid > *,
-.pipeline > *,
-.route-tape > *,
-.telemetry-rack > *,
-.validation-grid > *,
-.cursor-strip > * { min-width:0; }
-
-.top-cta,
-.primary-btn,
-.ghost-btn,
-.top-nav a,
-.panel-header b,
-.cursor-strip span,
-.route-tape span {
-  max-width:100%;
-  overflow-wrap:anywhere;
-  word-break:normal;
-  text-align:center;
-  line-height:1.15;
-}
-
-.panel-header strong,
-.panel-header span,
-.hero-lede,
-.section-title p,
-.economy-copy p,
-.launch-card p,
-.metric-row span,
-.system-card p,
-.proof-card p,
-.pipeline p {
-  overflow-wrap:anywhere;
-}
-
-@media(max-width:900px){
-  .top-chrome{padding:12px 14px;gap:12px}
-  .top-nav{width:100%;justify-content:flex-start}
-  .mission-actions,.launch-actions{width:100%}
-  .mission-actions .primary-btn,
-  .mission-actions .ghost-btn,
-  .launch-actions .primary-btn,
-  .launch-actions .ghost-btn{flex:1 1 220px}
-}
-
-@media(max-width:620px){
-  .site-shell{width:calc(100% - 14px);margin-top:7px}
-  .top-chrome,.mission-panel,.studio-cockpit,.panel-shell,.system-card,.proof-card,.pipeline article{border-radius:20px}
-  .top-chrome{padding:10px 11px}
-  .top-logo{width:100%;min-width:0}
-  .top-wordmark{min-width:0;width:min(100%,330px)}
-  .top-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;width:100%}
-  .top-nav a{width:100%;padding:9px 8px;min-height:42px;font-size:.78rem;letter-spacing:.055em}
-  .top-cta{width:100%;min-height:50px;padding:10px 14px;white-space:normal}
-
-  .mission-panel,.studio-cockpit{padding:16px}
-  .panel-header{grid-template-columns:40px minmax(0,1fr);gap:10px;padding:9px 10px}
-  .panel-header img{width:36px;height:36px}
-  .panel-header b{grid-column:1/-1;justify-self:start;white-space:normal;padding:6px 9px}
-
-  .hero-mark{padding:10px 12px}
-  .hero-lede{font-size:1rem;line-height:1.55;padding:9px 10px}
-  .mission-actions{display:grid;grid-template-columns:1fr;gap:10px}
-  .mission-actions .primary-btn,
-  .mission-actions .ghost-btn,
-  .launch-actions .primary-btn,
-  .launch-actions .ghost-btn{width:100%;min-height:54px;padding:12px 14px;white-space:normal}
-
-  .metric-row article{min-height:auto;padding:16px}
-  .metric-row strong{font-size:clamp(1.35rem,8vw,1.9rem)}
-  .metric-row span{font-size:.98rem}
-
-  .section{padding-block:52px}
-  .section-title{gap:12px;margin-bottom:22px}
-  .section-glyph{width:62px;height:62px;border-radius:18px}
-  .section-title h2,.economy-copy h2,.launch-card h2{font-size:clamp(1.9rem,10vw,3rem);line-height:1}
-
-  .cursor-strip span,.route-tape span{padding:10px 12px;min-height:48px;font-size:.70rem;letter-spacing:.055em}
-  .studio-screen{padding:7px;border-radius:17px}
-
-  .launch-card{padding:20px}
-  .launch-card>img{width:88px;height:88px}
-  .launch-actions{display:grid;grid-template-columns:1fr;width:100%}
-}
-
-@media(max-width:390px){
-  .top-nav{grid-template-columns:1fr}
-  h1{font-size:clamp(2.45rem,14vw,3.65rem)}
-  .mission-panel,.studio-cockpit{padding:14px}
-  .panel-header{padding:8px}
-  .primary-btn,.ghost-btn,.top-cta{font-size:.86rem;letter-spacing:.055em}
-}
-'''
-          if marker not in css:
-              css_path.write_text(css.rstrip() + block + '\n', encoding='utf-8')
-          else:
-              print('Responsive polish already present')
-
-          index_path = Path('index.html')
-          html = index_path.read_text(encoding='utf-8')
-          old = 'href="styles.css"'
-          new = 'href="styles.css?v=20260917-mobile-polish"'
-          if new not in html and old in html:
-              html = html.replace(old, new, 1)
-              index_path.write_text(html, encoding='utf-8')
-          PY
-
-      - name: Commit polish pass
+      - name: Commit change
         shell: bash
         run: |
           git config user.name "beast-site-bot"
           git config user.email "beast-site-bot@users.noreply.github.com"
           if git diff --quiet; then
-            echo "No changes needed."
+            echo "No change needed."
           else
-            git add styles.css index.html
-            git commit -m "Polish BEAST site mobile responsiveness"
+            git add index.html
+            git commit -m "Load BEAST mobile polish stylesheet"
             git push
           fi
